@@ -22,7 +22,7 @@ install_d2() {
   local bin_path="${bin_install_path}/d2"
   echo "downloading d2 ${download_url}"
   curl -L -s "$download_url" | tar -C "${install_path}" -xz
-  mv "${install_path}/bin/d2" "${bin_install_path}/d2"
+  mv "${install_path}/d2-v${version}/bin/d2" "${bin_install_path}/d2"
   chmod +x $bin_path
 }
 
