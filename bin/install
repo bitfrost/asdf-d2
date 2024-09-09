@@ -28,6 +28,9 @@ install_d2() {
 
 get_platform() {
   local platform=$(uname | tr 'A-Z' 'a-z')
+  if [ "$platform" == "darwin" ]; then
+    platform="macos"
+  fi
   echo $platform
 }
 
@@ -40,7 +43,7 @@ get_download_url() {
   local version="$1"
   local platform="$(get_platform)"
   local arch="$(get_arch)"
-  echo "https://github.com/terrastruct/d2/releases/download/v${version}/d2-${platform}-${arch}.gz"
+  echo "https://github.com/terrastruct/d2/releases/download/v${version}/d2-${platform}-${arch}.tar.gz"
 }
 
 install_d2 $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
