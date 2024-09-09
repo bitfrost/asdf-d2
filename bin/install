@@ -36,6 +36,9 @@ get_platform() {
 
 get_arch() {
   local arch=$(uname -m)
+  if ["$arch"] == "x86_64"]; then
+    arch="amd64"
+  fi
   echo $arch
 }
 
